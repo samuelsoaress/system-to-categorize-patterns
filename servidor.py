@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, flash, send_from_directory, url_for
+from automatizador import sem_classe, hoteis, materiais_construcao, cosmeticos, locacao_automovel, farmacia, academia, supermercado, passagens_aereas, fast_food, restaurante
+from automatizador import main
 import os, time
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -16,6 +19,17 @@ def upload():
     arquivo = request.files['arquivo']
     upload_path = app.config['UPLOAD_PATH']
     arquivo.save(f'{upload_path}/{arquivo.filename}')
-    #nome_df = arquivo.filename
-    return redirect(url_for('index'))
+    nome_df = arquivo.filename
+    return redirect(url_for('download'))
+
+@app.route('/download')
+def download():
+    dados = pd.read_csv(app.config['UPLOAD_PATH'],'/',nome_df)
+    dados['COD_COMPUTADOR'] = 11
+    dados = main(dados)
+    total = len(dados)
+    resto = len(dados[dados['COD_COMPUTADOR'] == 11])
+    categorizado = total - resto
+    dados.to_csv('DATA_SET_CORRIGIDO.csv')
+    return render_template('download.html',titulo='Baixe seu dataset')
 app.run(debug=True)
