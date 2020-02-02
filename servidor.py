@@ -36,6 +36,8 @@ def categorizador(dados):
     dados = categorize(dados)
     return dados
 
+# Routes
+
 @app.route('/')
 def index():
     return render_template('index.html', titulo='Suba seu Dataset')
@@ -58,10 +60,20 @@ def upload():
     dados.to_csv("{}/{}".format(app.config['UPLOAD_PATH'],'DATA.csv'), index=False)
     return redirect(url_for('download'))
 
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html', titulo='Cadastre uma nova Keyword')
+
+
+@app.route('/cadastro',methods=['POST'])
+def criar():
+    nome = request.form['nome']
+    
 
 @app.route('/download')
 def download():
     return render_template('download.html',titulo='Baixe seu dataset', categorias=lista)
+
 
 @app.route('/uploads/<nome_arquivo>')
 def data(nome_arquivo):
