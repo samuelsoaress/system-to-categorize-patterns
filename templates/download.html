@@ -1,4 +1,17 @@
 {% extends "template.html" %}
 {% block conteudo %}
-    <a href="">botão pra baixar arquivo</a>
+
+    {% for categoria in categorias %}
+    <tr>
+        <!-- <td> Seu Dataset tinha {{ categoria }} dados</td>
+        <td>Precisa ser anotado {{ categoria }}</td>
+        <td>O Algoritmo conseguiu categorizar{{ categoria }}</td> -->
+        <td>{{ categoria }}</td>
+        <td>
+            <a href="">Editar</a>
+            <a href="">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    <a href="{{ url_for('data', nome_arquivo = 'DATA.csv') }}" download="DATA_CORRIGIDA.csv">Download Text</a>
 {% endblock %}
