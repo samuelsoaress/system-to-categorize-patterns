@@ -1,15 +1,19 @@
 from flask import Flask, render_template, request, redirect, flash, send_from_directory, url_for
-from automatizador import sem_classe, hoteis, materiais_construcao, cosmeticos, locacao_automovel, farmacia, academia, supermercado, passagens_aereas, fast_food, restaurante
-from automatizador import main
+from automatizador import mape, le_arquivo, categorizador,
 import os, time
 import pandas as pd
+import pymysql
 
-class Categoria:
-    def __init__(self, total, resto, categorizado):
-        self.total = total 
-        self.resto = resto
-        self.categorizado = categorizado
+bd = pymysql.connect(host='localhost',
+                                user='root',
+                                password='',
+                                db='data_note',
+                                cursorclass=pymysql.cursors.DictCursor)
 
+
+cursor = bd.cursor()
+
+SQL_CRIA = 'INSERT into palavras_chaves (nome, categoria) values (%s,%s)'
     
 
 app = Flask(__name__)
@@ -20,21 +24,6 @@ nome_df = ""
 
 dados = pd.DataFrame()
 lista = []
-
-def le_arquivo(nome_df):
-    dados = pd.read_csv("{}/{}".format(app.config['UPLOAD_PATH'],nome_df))
-    return dados
-
-
-def categorize(dados):
-    dados = main(dados)
-    return dados
-
-
-def categorizador(dados):
-    dados['COD_COMPUTADOR'] = 11
-    dados = categorize(dados)
-    return dados
 
 # Routes
 
@@ -68,7 +57,13 @@ def cadastro():
 @app.route('/cadastro',methods=['POST'])
 def criar():
     nome = request.form['nome']
-    
+    categoria = request.form['categoria']
+    cursor.execute(SQL_CRIA,(nome,categoria))
+    bd.commit()
+    return redirect(url_for('cadastro'))
+
+
+
 
 @app.route('/download')
 def download():

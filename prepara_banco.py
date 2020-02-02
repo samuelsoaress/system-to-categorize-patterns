@@ -1,4 +1,5 @@
 import pymysql
+import pprint
 
 def main(args):
     bd = pymysql.connect(host='localhost',
@@ -7,10 +8,11 @@ def main(args):
                                 db='data_note',
                                 cursorclass=pymysql.cursors.DictCursor)
     cursor = bd.cursor()
-    sql = '''INSERT INTO palavras_chaves(nome, categoria) values ('GASTROPUB', 7)'''
+    sql = '''SELECT nome from palavras_chaves where categoria = 10'''
     try:
         # Execute o comando
         cursor.execute(sql)
+        print(type(cursor.execute(sql)))
         # Confirme a inserção na base de dados
         bd.commit()
  

@@ -13,5 +13,8 @@
         </td>
     </tr>
     {% endfor %}
-    <a href="{{ url_for('data', nome_arquivo = 'DATA.csv') }}" download="DATA_CORRIGIDA.csv">Faça o download aqui</a>
+    <a class="btn btn-primary" href="{{ url_for('data', nome_arquivo = 'DATA.csv') }}" download="DATA_CORRIGIDA.csv">Faça o download aqui</a>
+
+    <a class="btn btn-danger" href="{{ url_for('index') }}">Subir Dataset</a>
+    <a class="btn btn-danger" href="{{ url_for('cadastro') }}">Adicionar Keywords</a>
 {% endblock %}
