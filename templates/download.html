@@ -1,18 +1,35 @@
 {% extends "template.html" %}
 {% block conteudo %}
 
-    {% for categoria in categorias %}
-    <tr>
-        <!-- <td> Seu Dataset tinha {{ categoria }} dados</td>
-        <td>Precisa ser anotado {{ categoria }}</td>
-        <td>O Algoritmo conseguiu categorizar{{ categoria }}</td> -->
-        <td>{{ categoria }}</td>
-        <td>
-            <a href="">Editar</a>
-            <a href="">Deletar</a>
-        </td>
-    </tr>
-    {% endfor %}
+    <div class="container">
+        {% for categoria in categorias %} 
+            <tr class="list-group">
+                
+                
+                
+                <div class="card">
+                    <div class="card-body">
+                        <td class="list-group-item" >Seu Dataset tinha {{ categoria.total }}</td>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <td class="list-group-item">O Algoritmo conseguiu categorizar {{ categoria.categorizado }}</td>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <td class="list-group-item">Precisa ser anotado {{ categoria.resto }}</td>        
+                    </div>
+                </div>
+                
+                
+                
+            </tr>
+        {% endfor %}
+    </div>
     <a class="btn btn-primary" href="{{ url_for('data', nome_arquivo = 'DATA.csv') }}" download="DATA_CORRIGIDA.csv">Faça o download aqui</a>
 
     <a class="btn btn-danger" href="{{ url_for('index') }}">Subir Dataset</a>

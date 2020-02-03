@@ -1,6 +1,6 @@
 import pandas as pd
 import pymysql
-from flask import jsonify
+import os
 
 bd = pymysql.connect(host='localhost',
                                 user='root',
@@ -28,10 +28,6 @@ def mape(dados):
                 else:
                     continue
         categoria -= 1
-    return dados
-
-def le_arquivo(nome_df):
-    dados = pd.read_csv("{}/{}".format(app.config['UPLOAD_PATH'],nome_df))
     return dados
 
 
