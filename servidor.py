@@ -45,6 +45,7 @@ def upload():
     nome_df = arquivo.filename
     dados = le_arquivo(nome_df)
     dados = categorizador(dados)
+    os.remove(os.path.join(app.config['UPLOAD_PATH'], nome_df))
     dados.to_csv("{}/{}".format(app.config['UPLOAD_PATH'],'DATA.csv'), index=False)
     return redirect(url_for('download'))
 
@@ -83,6 +84,13 @@ def download():
 @app.route('/uploads/<nome_arquivo>')
 def data(nome_arquivo):
     return send_from_directory('uploads', nome_arquivo)
+ 
+
+
+@app.route('/limpeza')
+def deleta():
+    os.remove(os.path.join('uploads/DATA.csv'))
+    return redirect(url_for('index'))
 
 
 app.run(debug=True)
