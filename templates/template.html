@@ -49,13 +49,38 @@
                 </ul>
             {% endif %}
         {% endwith %}
-
+        <div id="page-wrapper" class="gray-bg">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="container" style="padding-top: 70px;">
+                            <div class="card">
+                                    <div class="card-body">
+                                        <h1 class="card-title">Adiante teu job</h1>
+                                    </div>
+                            </div>
+                    </div>
+        <div class="row border-bottom" >
+            <!-- envelope do Conteúdo das views     -->
                 
-        <div class="page-header">
-            <h1>{{ titulo }}</h1>
-        </div>
-        {% block conteudo %}{% endblock %}
-    </div>
+                        <div class="ibox-content m-b-lg">
+                                <h2>
+                                
+                                </h2>
+                        </div>
+    
+    
+                    <!-- ESPAÇO CONTEUDO DA PAGINA -->
+                </div>
+            </div> <!-- FIM - envelope do Conteúdo das views     -->
+    
+            <!-- Rodapé -->
+                    <div class="footer">
+                        <strong>Categorize Patterns</strong> &copy; - Copyright  
+                        <div class="pull-right">
+                            Categorize Patterns - 2019.
+                        </div>
+                    </div><!--FIM - Rodapé -->
+                </div><!--FIM Corpo conteudo -->
+        </div><!-- FIM - Conteúdo princial pagina --> 
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
