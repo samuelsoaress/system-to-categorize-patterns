@@ -2,8 +2,6 @@
 {% block conteudo %}
 
     <form class="wizard-big" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" id="form-cadastro">
-        <div class="container">
-
             <h1> Upload dos Dados</h1>
             <fieldset>
                 
@@ -15,7 +13,7 @@
                                 <figcaption>
                                     <label class="fileContainer">
                                         <button class="btn btn-primary btn-lg">Upload
-                                        <input type="file" name="arquivo" accept=".csv,.xlsx"></button>
+                                        <input type="file" name="arquivo" accept=".csv,.xlsx" required></button>
                                     </label>
                                 </figcaption>
                             </figure>
