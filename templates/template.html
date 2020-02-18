@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adiante seu JOB</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/stepsjquery.steps.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/steps/jquery.steps.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/jasny/jasny-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/datapicker/jasny-datepicker3.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins/switchery/switchery.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
-  <body  id="page-top" class="landing-page">
 
+  <body  id="page-top" class="landing-page">
         <div class="navbar-wrapper">
                 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                     <div class="container">
@@ -38,8 +39,8 @@
                         </div>
                     </div>
                 </nav>
-        </div>
-    <div class="container">
+           </div>
+
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <ul id="messages" class="list-unstyled">
@@ -49,39 +50,48 @@
                 </ul>
             {% endif %}
         {% endwith %}
+
         <div id="page-wrapper" class="gray-bg">
             <div class="wrapper wrapper-content animated fadeInRight">
-                    <div class="container" style="padding-top: 70px;">
-                            <div class="card">
-                                    <div class="card-body">
-                                        <h1 class="card-title">Adiante teu job</h1>
-                                    </div>
-                            </div>
+                <div class="container" style="padding-top: 70px;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title">Adiante teu job</h1>
+                        </div>
                     </div>
-        <div class="row border-bottom" >
-            <!-- envelope do Conteúdo das views     -->
-                
+                </div>
+
+                    <div class="row border-bottom" >
                         <div class="ibox-content m-b-lg">
                                 <h2>
-                                
+                                    <h1>{{ titulo }}</h1>
                                 </h2>
+                            
+                            {% block conteudo %}{% endblock %}
                         </div>
-    
-    
-                    <!-- ESPAÇO CONTEUDO DA PAGINA -->
+                    </div>
                 </div>
-            </div> <!-- FIM - envelope do Conteúdo das views     -->
-    
-            <!-- Rodapé -->
+            </div>
                     <div class="footer">
                         <strong>Categorize Patterns</strong> &copy; - Copyright  
                         <div class="pull-right">
                             Categorize Patterns - 2019.
                         </div>
                     </div><!--FIM - Rodapé -->
-                </div><!--FIM Corpo conteudo -->
         </div><!-- FIM - Conteúdo princial pagina --> 
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/inspinia.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/pace/pace.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/switchery/switchery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/staps/jquery.steps.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/datapicker/bootstrap-datepicker.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/dataTables/datatables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/validate/jquery.validate.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/pages/cadastro.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plugins/jqmask/jquery_mask.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/pages/validator.js') }}"></script>
   </body>
 </html>
