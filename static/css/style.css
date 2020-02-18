@@ -6617,7 +6617,7 @@ body.landing-page {
   transition: all 0.3s ease-in-out 0s;
 }
 .landing-page .navbar-default .nav li a {
-  color: rgb(233, 97, 88);
+  color: white;
   font-family: 'Open Sans', helvetica, arial, sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
@@ -6657,11 +6657,11 @@ body.landing-page {
   color: #fff;
 }
 .landing-page .navbar-default .navbar-brand {
-  color:  rgb(233, 97, 88);
+  color: white;
   height: auto;
   display: block;
   font-size: 14px;
-  background: yellow;
+  background: #40E0D0;
   padding: 15px 20px 15px 20px;
   border-radius: 0 0 5px 5px;
   font-weight: 700;
@@ -8254,4 +8254,7 @@ body.md-skin {
     padding-left: 150px;
     padding-right: 150px;
   }
+}
+a#form-cadastro-t-0{
+  background: white;
 }
