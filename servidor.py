@@ -26,7 +26,10 @@ palavra_dao = PalavraDao(bd)
 
 
 def le_arquivo(nome_df):
-    dados = pd.read_csv("{}/{}".format(app.config['UPLOAD_PATH'],nome_df))
+    try:
+        dados = pd.read_csv("{}/{}".format(app.config['UPLOAD_PATH'],nome_df))
+    except:
+        dados = pd.read_excel("{}/{}".format(app.config['UPLOAD_PATH'],nome_df))
     return dados
 
 
