@@ -63,10 +63,22 @@ def criar():
     nome = request.form['nome']
     categoria = request.form['categoria']
     nome = nome.upper()
-    SQL_CRIA = 'INSERT into palavras_chaves (nome, categoria) values (%s, %s)'
-    cursor.execute(SQL_CRIA,(nome, categoria))
-    bd.commit()
-    bd.close()
+    try:
+        SQL_CRIA = 'INSERT into palavras_chaves (nome, categoria) values (%s, %s)'
+        cursor.execute(SQL_CRIA,(nome, categoria))
+        bd.commit()
+        bd.close()
+    except:
+        bd = pymysql.connect(host='localhost',
+                                user='root',
+                                password='',
+                                db='data_note',
+                                cursorclass=pymysql.cursors.DictCursor)
+        cursor = bd.cursor()
+        SQL_CRIA = 'INSERT into palavras_chaves (nome, categoria) values (%s, %s)'
+        cursor.execute(SQL_CRIA,(nome, categoria))
+        bd.commit()
+        bd.close()
     return redirect(url_for('cadastro'))
 
 
