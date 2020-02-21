@@ -21,7 +21,7 @@ def mape(dados):
         cursor.execute(SQL_CATEGORIA_POR_ID,(categoria,))
         for palavra in cursor.fetchall():
             for linha in dados.index:
-                if (dados.loc[linha, 'COD_COMPUTADOR'] == 11) or (dados.loc[linha, 'COD_COMPUTADOR'] == 10)or (dados.loc[linha, 'COD_COMPUTADOR'] == 7):
+                if (dados.loc[linha, 'COD_COMPUTADOR'] == 11) or (dados.loc[linha, 'COD_COMPUTADOR'] == 10):
                     estabelecimento = dados.loc[linha,'NOME_ESTABELECIMENTO']
                     if palavra['nome'] in estabelecimento:
                         dados.loc[linha, 'COD_COMPUTADOR'] = categoria
