@@ -111,8 +111,8 @@
 .wizard > .steps .current a:hover,
 .wizard > .steps .current a:active
 {
-    background: yellow;
-    color: rgb(231, 58, 31);
+    background: #40E0D0 ;
+    color: white;
     cursor: default;
 }
 
@@ -251,8 +251,8 @@
 .wizard > .actions a:hover,
 .wizard > .actions a:active
 {
-    background: yellow;
-    color: rgb(231, 58, 31);
+    background: #40E0D0;
+    color: white;
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;
