@@ -23,8 +23,9 @@ def mape(dados):
             for linha in dados.index:
                 if (dados.loc[linha, 'COD_COMPUTADOR'] == 11) or (dados.loc[linha, 'COD_COMPUTADOR'] == 10):
                     estabelecimento = dados.loc[linha,'NOME_ESTABELECIMENTO']
-                    if palavra['nome'] in estabelecimento:
-                        dados.loc[linha, 'COD_COMPUTADOR'] = categoria
+                    if not(type(estabelecimento) == float):    
+                        if palavra['nome'] in estabelecimento:
+                            dados.loc[linha, 'COD_COMPUTADOR'] = categoria
                 else:
                     continue
         categoria -= 1
