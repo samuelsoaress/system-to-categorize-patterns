@@ -17,7 +17,7 @@ SQL_CATEGORIA_POR_ID = 'SELECT nome from palavras_chaves where categoria = %s'
 
 def mape(dados):
     categoria = 10
-    while categoria >= 0:
+    while categoria >= 0:    
         cursor.execute(SQL_CATEGORIA_POR_ID,(categoria,))
         for palavra in cursor.fetchall():
             for linha in dados.index:
